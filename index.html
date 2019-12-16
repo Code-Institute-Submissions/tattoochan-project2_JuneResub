@@ -1,18 +1,279 @@
 <html>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
-</script>
-<script>
-    $.ajax({
-        url: "https://api.exchangerate-api.com/v4/latest/USD",
-        context: document.body
-    }).done(function (data) {
-        console.log(data)
-    });
-</script>
 
-<body>
+<head>
+    <title>Currency Conversion</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <style type="text/css">
+        #box {
+            height: auto;
+            margin: 0 auto;
+            padding: 1em 4em;
+            margin-top: 1em;
+        }
 
+        h2 {
+            text-align: center;
+        }
+
+        table {
+            margin: 0 auto;
+        }
+
+        #toAmount,
+        #toFromtxt {
+            padding: 0.5em;
+        }
+
+        #toAmount {
+            font-size: 2em;
+        }
+
+        .result-container {
+            text-align: center;
+            width: fit-content;
+            margin: 0 auto;
+            padding: 1em;
+        }
+
+        .country-img {
+            max-width: 100px;
+        }
+
+        .flags {
+            text-align: center;
+            padding: 1em;
+        }
+
+        #currency-holder {
+            justify-content: center;
+        }
+
+        #box h2 {
+            padding: 2em;
+        }
+    </style>
+    <script type="text/javascript">
+        function convertCurrency() {
+            // document.getElementsByClassName("cur").innerHTML = "";
+            var div = document.getElementById("currency-holder");
+            var y = div.getElementsByTagName("P");
+            var ctr;
+            for (ctr = 0; ctr < y.length; ctr++) {
+                y[ctr].innerHTML = "";
+            }
+            var from = document.getElementById("from").value;
+            var to = document.getElementById("to").value;
+            var xmlhttp = new XMLHttpRequest();
+            var url = "https://api.exchangerate-api.com/v4/latest/" + from;
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    var result = xmlhttp.responseText;
+                    var jsResult = JSON.parse(result);
+                    var oneUnit = jsResult.rates[to] / jsResult.rates[from];
+                    for (x in jsResult.rates) {
+                        if (x == 'USD') {
+                            document.getElementById("USA").innerHTML += jsResult.rates[x] + ' ' + x + "<br>"
+                        }
+                        if (x == 'SGD') {
+                            document.getElementById("SGD").innerHTML += jsResult.rates[x] + ' ' + x + "<br>"
+                        }
+                        if (x == 'EUR') {
+                            document.getElementById("EUR").innerHTML += jsResult.rates[x] + ' ' + x + "<br>"
+                        }
+                        if (x == 'GBP') {
+                            document.getElementById("GBP").innerHTML += jsResult.rates[x] + ' ' + x + "<br>"
+                        }
+                        if (x == 'INR') {
+                            document.getElementById("INR").innerHTML += jsResult.rates[x] + ' ' + x + "<br>"
+                        }
+                        if (x == 'AUD') {
+                            document.getElementById("AUD").innerHTML += jsResult.rates[x] + ' ' + x + "<br>"
+                        }
+                        if (x == 'PHP') {
+                            document.getElementById("PHP").innerHTML += jsResult.rates[x] + ' ' + x + "<br>"
+                        }
+
+                    }
+                    var amt = document.getElementById("fromAmount").value;
+                    var to_prefix = document.getElementById("to").value;
+                    document.getElementById("toFromtxt").innerHTML = amt + ' ' + from + ' = ';
+                    document.getElementById("toAmount").innerHTML = (oneUnit * amt).toFixed(3) + ' ' + to_prefix;
+
+
+                }
+            }
+
+        }
+    </script>
+</head>
+
+<body onload="convertCurrency()">
+    <div id="box">
+        <h2>Currency Converter</h2>
+        <table class="table table-info text-center">
+            <tr>
+                <td>
+                    <label>Amount</label>
+                    <input class="form-control text-center" id="fromAmount" type="text" size="15" value="1"
+                        onkeyup="convertCurrency();">
+                </td>
+                <td>
+                    <label>From</label>
+                    <select class="form-control " id="from" onchange="convertCurrency()">
+                        <option value="AED">UAE Dirham (AED)</option>
+                        <option value="ARS">Argentine Peso (ARS)</option>
+                        <option value="AUD">Australian Dollar (AUD)</option>
+                        <option value="BGN">Bulgarian Lev (BGN)</option>
+                        <option value="BRL">Brazilian Real (BRL)</option>
+                        <option value="BSD">Bahamian Dollar (BSD)</option>
+                        <option value="CAD">Canadian Dollar (CAD)</option>
+                        <option value="CHF">Swiss Franc (CHF)</option>
+                        <option value="CLP">Chilean Peso (CLP)</option>
+                        <option value="CNY">Chinese Renminbi (CNY)</option>
+                        <option value="COP">Colombian Peso (COP)</option>
+                        <option value="CZK">Czech Koruna (CZK)</option>
+                        <option value="DOP">Danish Krone (DOP)</option>
+                        <option value="DKK">Dominican Peso (DKK)</option>
+                        <option value="DOP">Egyptian Pound (DOP)</option>
+                        <option value="EUR">Euro (EUR)</option>
+                        <option value="FJD">Fiji Dollar (FJD)</option>
+                        <option value="GBP">Pound Sterling (GBP)</option>
+                        <option value="GTQ">Guatemalan Quetzal (GTQ)</option>
+                        <option value="HKD">Hong Kong Dollar (HKD)</option>
+                        <option value="HRK">Croatian Kuna (HRK)</option>
+                        <option value="HUF">Hungarian Forint (HUF)</option>
+                        <option value="IDR">Indonesian Rupiah (IDR)</option>
+                        <option value="ILS">Israeli Shekel (ILS)</option>
+                        <option value="INR">Indian Rupee (INR)</option>
+                        <option value="ISK">Icelandic Krona (ISK)</option>
+                        <option value="JPY">Japanese Yen (JPY)</option>
+                        <option value="KRW">South Korean Won (KRW)</option>
+                        <option value="KZT">Kazakhstani Tenge (KZT)</option>
+                        <option value="MXN">Mexican Peso (MXN)</option>
+                        <option value="MYR">Malaysian Ringgit (MYR)</option>
+                        <option value="NOK">Norwegian Krone (NOK)</option>
+                        <option value="NZD">New Zealand Dollar (NZD)</option>
+                        <option value="PAB">Panamanian Balboa (PAB)</option>
+                        <option value="PEN">Peruvian Nuevo Sol (PEN)</option>
+                        <option value="PHP">Philippine Peso (PHP)</option>
+                        <option value="PKR">Pakistani Rupee (PKR)</option>
+                        <option value="PLN">Polish Zloty (PLN)</option>
+                        <option value="PYG">Paraguayan Guarani (PYG)</option>
+                        <option value="RON">Romanian Leu (RON)</option>
+                        <option value="RUB">Russian Ruble (RUB)</option>
+                        <option value="SAR">Saudi Riyal (SAR)</option>
+                        <option value="SEK">Swedish Krona (SEK)</option>
+                        <option value="SGD" selected>Singapore Dollar (SGD)</option>
+                        <option value="THB">Thai Baht (THB)</option>
+                        <option value="TRY">Turkish Lira (TRY)</option>
+                        <option value="TWD">New Taiwan Dollar (TWD)</option>
+                        <option value="UAH">Ukrainian Hryvnia (UAH)</option>
+                        <option value="USD">US Dollar (USD)</option>
+                        <option value="UYU">Uruguayan Peso (UYU)</option>
+                        <option value="VND">Vietnamese Dong (VND)</option>
+                        <option value="ZAR">South African Rand (ZAR)</option>
+                    </select>
+                </td>
+                <td>
+                    <label>To</label>
+                    <select class="form-control" id="to" onchange="convertCurrency()">
+                        <option value="AED">UAE Dirham (AED)</option>
+                        <option value="ARS">Argentine Peso (ARS)</option>
+                        <option value="AUD">Australian Dollar (AUD)</option>
+                        <option value="BGN">Bulgarian Lev (BGN)</option>
+                        <option value="BRL">Brazilian Real (BRL)</option>
+                        <option value="BSD">Bahamian Dollar (BSD)</option>
+                        <option value="CAD">Canadian Dollar (CAD)</option>
+                        <option value="CHF">Swiss Franc (CHF)</option>
+                        <option value="CLP">Chilean Peso (CLP)</option>
+                        <option value="CNY">Chinese Renminbi (CNY)</option>
+                        <option value="COP">Colombian Peso (COP)</option>
+                        <option value="CZK">Czech Koruna (CZK)</option>
+                        <option value="DOP">Danish Krone (DOP)</option>
+                        <option value="DKK">Dominican Peso (DKK)</option>
+                        <option value="DOP">Egyptian Pound (DOP)</option>
+                        <option value="EUR">Euro (EUR)</option>
+                        <option value="FJD">Fiji Dollar (FJD)</option>
+                        <option value="GBP">Pound Sterling (GBP)</option>
+                        <option value="GTQ">Guatemalan Quetzal (GTQ)</option>
+                        <option value="HKD">Hong Kong Dollar (HKD)</option>
+                        <option value="HRK">Croatian Kuna (HRK)</option>
+                        <option value="HUF">Hungarian Forint (HUF)</option>
+                        <option value="IDR">Indonesian Rupiah (IDR)</option>
+                        <option value="ILS">Israeli Shekel (ILS)</option>
+                        <option value="INR">Indian Rupee (INR)</option>
+                        <option value="ISK">Icelandic Krona (ISK)</option>
+                        <option value="JPY">Japanese Yen (JPY)</option>
+                        <option value="KRW">South Korean Won (KRW)</option>
+                        <option value="KZT">Kazakhstani Tenge (KZT)</option>
+                        <option value="MXN">Mexican Peso (MXN)</option>
+                        <option value="MYR">Malaysian Ringgit (MYR)</option>
+                        <option value="NOK">Norwegian Krone (NOK)</option>
+                        <option value="NZD">New Zealand Dollar (NZD)</option>
+                        <option value="PAB">Panamanian Balboa (PAB)</option>
+                        <option value="PEN">Peruvian Nuevo Sol (PEN)</option>
+                        <option value="PHP" selected>Philippine Peso (PHP)</option>
+                        <option value="PKR">Pakistani Rupee (PKR)</option>
+                        <option value="PLN">Polish Zloty (PLN)</option>
+                        <option value="PYG">Paraguayan Guarani (PYG)</option>
+                        <option value="RON">Romanian Leu (RON)</option>
+                        <option value="RUB">Russian Ruble (RUB)</option>
+                        <option value="SAR">Saudi Riyal (SAR)</option>
+                        <option value="SEK">Swedish Krona (SEK)</option>
+                        <option value="SGD">Singapore Dollar (SGD)</option>
+                        <option value="THB">Thai Baht (THB)</option>
+                        <option value="TRY">Turkish Lira (TRY)</option>
+                        <option value="TWD">New Taiwan Dollar (TWD)</option>
+                        <option value="UAH">Ukrainian Hryvnia (UAH)</option>
+                        <option value="USD">US Dollar (USD)</option>
+                        <option value="UYU">Uruguayan Peso (UYU)</option>
+                        <option value="VND">Vietnamese Dong (VND)</option>
+                        <option value="ZAR">South African Rand (ZAR)</option>
+                    </select>
+                </td>
+            </tr>
+
+        </table>
+        <div class="result-container">
+            <span id="toFromtxt"></span><br>
+            <span id="toAmount"></span>
+        </div>
+        <div id="currency-holder" class="row">
+            <div class="flags"><img class="img-responsive country-img" src="./images/united_states_of_america_640.png">
+                <p id="USA"></p>
+            </div>
+            <div class="flags"><img class="img-responsive country-img" src="./images/singapore_640.png">
+                <p id="SGD"></p>
+            </div>
+            <div class="flags"><img class="img-responsive country-img" src="./images/european_union_640.png">
+                <p id="EUR"></p>
+            </div>
+            <div class="flags"><img class="img-responsive country-img" src="./images/united_kingdom_640.png">
+                <p id="GBP"></p>
+            </div>
+            <div class="flags"><img class="img-responsive country-img" src="./images/india_640.png">
+                <p id="INR"></p>
+            </div>
+            <div class="flags"><img class="img-responsive country-img" src="./images/australia_640.png">
+                <p id="AUD"></p>
+            </div>
+            <div class="flags"><img class="img-responsive country-img" src="./images/philippines_640.png">
+                <p id="PHP"></p>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -26,9 +26,19 @@
 
 ## Testing:
 
-  I have done simple testing on both columns to ensure that the currencies selected in both (A) & (B) are working and the amount that I have input has been correctly reflected.
+I have done simple testing on both columns to ensure that the currencies selected in both (A) & (B) are working and the amount that I have input has been correctly reflected.
 
-  The 7 selected live currencies to show are also updated when I went in to check on a daily basis.
+The 7 selected live currencies to show are also updated when I went in to check on a daily basis.
+
+Testing - This is being tested with chrome , safari and internet edge. 
+Mobile responsiveness is tested for screen size 1440px , 768px , 425px  
+
+Manual Testing is done to ensure that the all functions are functional.
+Test Results as follows :
+
+*No* | *Steps* | *Expected Results* | *Observations*
+--- | --- | --- | ---
+1 | `Click on the "INTRO" in navbar`| `Link to the introduction section`| **Pass** 
 
 ## Deployment:
 

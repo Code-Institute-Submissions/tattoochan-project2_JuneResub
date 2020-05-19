@@ -1,33 +1,64 @@
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--Fontawesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="styles/style.css">
+
     <title>Currency Conversion</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    </link>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
-    <script src="script.js"></script>
 
 </head>
 
-<body onload="convertCurrency()">
-    <div id="box">
-        <h2>Currency Converter</h2>
-        <table class="table table-info text-center">
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <h4>Currency Converter</h4>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="tel:+91234567">Contact Us</a>
+                </li>
+            </ul>
+            <div>
+                <a href="#" class="fa fa-facebook rounded"></a>
+                <a href="#" class="fa fa-instagram rounded"></a>
+            </div>
+        </div>
+    </nav>
+    
+    <!--Main Section for selection of input-->
+    <main id="box">
+        <!--Header : Currency Converter-->
+        <div class='banner d-flex justify-content-center align-items-center p-5 bg-light mb-5'>
+            <div>
+                <h1 class='p-2  text-dark text-center'>Currency Converter</h1>
+            </div>
+        </div>
+        
+        <!--Selection input bar-->
+        <table class="table table-info text-center w-75">
             <tr>
                 <td>
                     <label>Amount</label>
-                    <input class="form-control text-center" id="fromAmount" type="text" size="15" value="1"
-                        onkeyup="convertCurrency();">
+                    <input class="form-control text-center" id="fromAmount" type="text" size="15" value="1" onkeyup="convertCurrency();">
                 </td>
                 <td>
                     <label>From</label>
@@ -146,11 +177,18 @@
             </tr>
 
         </table>
-        <div class="result-container">
-            <span id="toFromtxt"></span><br>
-            <span id="toAmount"></span>
+        
+        <!--Result display of rates-->
+        <div class="row">
+            <div class="rounded bg-dark text-white p-1 mb-4 w-25 text-center mx-auto">
+                <span id="toFromtxt"></span><br>
+                <span id="toAmount"></span>
+            </div>
         </div>
-        <div id="currency-holder" class="row">
+        
+        <!--Display countries flags of currency that alway shows-->
+        <div class="row">
+            <div id="currency-holder" class="row bg-light w-75 rounded mx-auto">
             <div class="flags"><img class="img-responsive country-img" src="./images/united_states_of_america_640.png">
                 <p id="USA"></p>
             </div>
@@ -173,7 +211,21 @@
                 <p id="PHP"></p>
             </div>
         </div>
-    </div>
+        </div>
+    </main>
+    
+    <footer class='p-3 w-100 row'>
+        <div class="mx-auto">@Currency Converter</div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!--Custom Script-->
+    <script src="scripts/script.js"></script>
+
 </body>
 
 </html>

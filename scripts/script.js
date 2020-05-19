@@ -17,7 +17,8 @@ function convertCurrency() {
             var result = xmlhttp.responseText;
             var jsResult = JSON.parse(result);
             var oneUnit = jsResult.rates[to] / jsResult.rates[from];
-            for (x in jsResult.rates) {
+            console.log(result)
+            for (let x in jsResult.rates) {
                 if (x == 'USD') {
                     document.getElementById("USA").innerHTML += jsResult.rates[x] + ' ' + x + "<br>"
                 }

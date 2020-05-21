@@ -2,6 +2,7 @@ table {
     margin: 0 auto;
 }
 
+/*Setting image to main*/
 main {
     width: 100%;
     min-height: 80vh;
@@ -12,32 +13,33 @@ main {
     margin : 0;
 }
 
-h1 {
+/*Setting font size for brand */
+.brand {
+    font-family: 'Abril Fatface', cursive;
     font-size: 4rem;
 }
 
+/*Display setting for selection conversion*/
 #toAmount,
 #toFromtxt {
     padding: 0.5em;
 }
-
 #toAmount {
     font-size: 2em;
 }
 
+/*styling for the flags */
 .country-img {
-    max-width: 100px;
+    height: 100px;
+    width : auto;
 }
-
 .flags {
     text-align: center;
     padding: 1em;
 }
 
-#currency-holder {
-    justify-content: center;
-}
 
+/*Social media styling*/
 .fa {
   padding: 10px;
   font-size: 30px;
@@ -46,16 +48,13 @@ h1 {
   text-decoration: none;
   margin: 5px 2px;
 }
-
 .fa:hover {
     opacity: 0.7;
 }
-
 .fa-facebook {
   background: #3B5998;
   color: white;
 }
-
 .fa-instagram {
   background: #125688;
   color: white;

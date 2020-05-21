@@ -13,11 +13,11 @@
     <!--Custom CSS-->
     <link rel="stylesheet" href="styles/style.css">
 
-    <title>Currency Conversion</title>
+    <title>Express Currency Conversion</title>
 
 </head>
 
-<body>
+<body onload="convertCurrency()">
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
@@ -43,16 +43,16 @@
             </div>
         </div>
     </nav>
-    
+
     <!--Main Section for selection of input-->
     <main id="box">
         <!--Header : Currency Converter-->
-        <div class='banner d-flex justify-content-center align-items-center p-5 bg-light mb-5'>
+        <div class='banner d-flex justify-content-center align-items-center p-3 bg-light mb-5'>
             <div>
-                <h1 class='p-2  text-dark text-center'>Currency Converter</h1>
+                <h1 class='p-2  text-dark text-center'>Express Currency Converter</h1>
             </div>
         </div>
-        
+
         <!--Selection input bar-->
         <table class="table table-info text-center w-75">
             <tr>
@@ -177,45 +177,53 @@
             </tr>
 
         </table>
-        
+
         <!--Result display of rates-->
         <div class="row">
-            <div class="rounded bg-dark text-white p-1 mb-4 w-25 text-center mx-auto">
+            <div class="rounded bg-light text-dark p-1 mb-4 w-25 text-center mx-auto">
                 <span id="toFromtxt"></span><br>
                 <span id="toAmount"></span>
             </div>
         </div>
-        
+
         <!--Display countries flags of currency that alway shows-->
         <div class="row">
-            <div id="currency-holder" class="row bg-light w-75 rounded mx-auto">
-            <div class="flags"><img class="img-responsive country-img" src="./images/united_states_of_america_640.png">
-                <p id="USA"></p>
-            </div>
-            <div class="flags"><img class="img-responsive country-img" src="./images/singapore_640.png">
-                <p id="SGD"></p>
-            </div>
-            <div class="flags"><img class="img-responsive country-img" src="./images/european_union_640.png">
-                <p id="EUR"></p>
-            </div>
-            <div class="flags"><img class="img-responsive country-img" src="./images/united_kingdom_640.png">
-                <p id="GBP"></p>
-            </div>
-            <div class="flags"><img class="img-responsive country-img" src="./images/india_640.png">
-                <p id="INR"></p>
-            </div>
-            <div class="flags"><img class="img-responsive country-img" src="./images/australia_640.png">
-                <p id="AUD"></p>
-            </div>
-            <div class="flags"><img class="img-responsive country-img" src="./images/philippines_640.png">
-                <p id="PHP"></p>
-            </div>
-        </div>
-        </div>
+            <div class="col-10 d-flex justify-content-center bg-light text-dark w-75 rounded p-0 mx-auto">
+                <div class="row w-100 pt-3 pr-3">
+
+                    <div class="col-md-1 col-sm-4 col-6 mx-auto">
+                        <img class="img-responsive country-img" src="./images/united_states_of_america_640.png">
+                        <p id="USA"></p>
+                    </div>
+                    <div class="col-md-1 col-sm-4 col-6 mx-auto">
+                        <img class="img-responsive country-img" src="./images/singapore_640.png">
+                        <p id="SGD"></p>
+                    </div>
+                    <div class="col-md-1 col-sm-4 col-6 mx-auto">
+                        <img class="img-responsive country-img" src="./images/european_union_640.png">
+                        <p id="EUR"></p>
+                    </div>
+                    <div class="col-md-1 col-sm-4 col-6 mx-auto">
+                        <img class="img-responsive country-img" src="./images/united_kingdom_640.png">
+                        <p id="GBP"></p>
+                    </div>
+                    <div class="col-md-1 col-sm-4 col-6 mx-auto">
+                        <img class="img-responsive country-img" src="./images/india_640.png">
+                        <p id="INR"></p>
+                    </div>
+                    <div class="col-md-1 col-sm-4 col-6 mx-auto">
+                        <img class="img-responsive country-img" src="./images/australia_640.png">
+                        <p id="AUD"></p>
+                    </div>
+                    <div class="col-md-1 col-sm-4 col-6 mx-auto">
+                        <img class="img-responsive country-img" src="./images/philippines_640.png">
+                        <p id="PHP"></p>
+                    </div>
+                </div>
     </main>
-    
+
     <footer class='p-3 w-100 row'>
-        <div class="mx-auto">@Currency Converter</div>
+        <div id='currency-holder' class="mx-auto">@Currency Converter</div>
     </footer>
 
     <!-- Optional JavaScript -->

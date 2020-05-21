@@ -1,14 +1,25 @@
 # Project Name: Express Currency Converter
 
+The project link is at https://tattoochan.github.io/project2/
+
 ## Description:
 
-  This application of mine will allow users to be able to convert 50 major currencies from at least 70 countries across the   globe to their preferred choices of output. It will take a base currency (USD) and convert immediately upon the user's input and selection of the currency that he/she wants converted. The users will also be able to view live exchange rates of the 7 currencies (USD, SGD, EUR, GBP, INR & AUD & PHP) even before they do any conversion. They will be able to view first of one unit of the selected currency of the afore-mentioned currencies.  
-
-  Users will also be able to toggle between any two currencies when they are using the application and this will allow them to know in an instance how much they are looking to get back when they return from their trips. Exchange rates data are updated at least once every 24 hours with data collected from a number of central banks across the world. Last but not least, this converter also uses the standard abbreviations for all the currencies making it super user-friendly for users!
+This application of mine will allow users to be able to convert 50 major currencies from at least 70 countries across the globe to their preferred choices of output. It will take a base currency (USD) and convert immediately upon the user's input and selection of the currency that he/she wants converted. The users will also be able to view live exchange rates of the 7 currencies (USD, SGD, EUR, GBP, INR & AUD & PHP) even before they do any conversion. They will be able to view first of one unit of the selected currency of the afore-mentioned currencies.  
+  
+Users will also be able to toggle between any two currencies when they are using the application and this will allow them to know in an instance how much they are looking to get back when they return from their trips. Exchange rates data are updated at least once every 24 hours with data collected from a number of central banks across the world. Last but not least, this converter also uses the standard abbreviations for all the currencies making it super user-friendly for users!
 
 ## UX:
 
-  To explain how the currency converter works, when a user visits the site, he or she will need to first select the currency to be converted (A). Thereafter, the user will will have to select the currency that he or she wants to be converted into(B). Finally the user will have to input the amount (a number up to 2 decimal places) before clicking convert to get the converted amount.
+As a user, 
+
+  * they will be able to get immediate conversion to and from the currencies they selected
+  * they will be able to get the most recent conversion rate 
+  * they will be able choose conversion from their desired currency to selected currency to convert to
+  
+As a platform,
+  * we will benefit by reaching to more user and potential link to local money changers to direct the leads
+  * we will attract advertisers who wish to reach out to the users
+  
 
 ## Features:
 
@@ -38,12 +49,25 @@ Test Results as follows :
 
 *No* | *Steps* | *Expected Results* | *Observations*
 --- | --- | --- | ---
-1 | `Click on the "INTRO" in navbar`| `Link to the introduction section`| **Pass** 
+1 | `Click on the input box below 'Amount' `| `Able to enter the amount that you want to calculate for conversion, results of conversion are immediately updated`| **Pass** 
+2 | `Click on the input box below 'From' `| `Select the currency you like to covert from, results of conversion are immediately updated`| **Pass** 
+3 | `Click on the input box below 'To' `| `Select the currency you like to covert to, results of conversion are immediately updated`| **Pass** 
+4 | `Click on the navbar 'Contact Us' `| `Able to link to call direct to a number [non-existing number set up for testing and not real number]`| **Pass** 
+5 | `Changes to the inputs' `| `Manual calculation is calculated to check if the results are correct`| **Pass** 
 
 ## Deployment:
 
-  Deployment of this project has been solely done through GitHub by pushing my work there. 
-  Commits are also made through the same way.
+The website is deployed on Github 
+Regular commits are made and once finalised.
+Below are the commands to initalise and make regular commits, enter the commands in bash terminal in AWS
+
+  * git init .
+  * git add . 
+  * git commit -m "Commit Message"
+  * git remote add origin https://github.com/tattoochan/project2.git
+  * git push -u origin master   
+  
+  In github.com > login to the page
   To deploy the page, go to the settings>Github pages and set the source to "Main Branch"
 
 ## Credits:

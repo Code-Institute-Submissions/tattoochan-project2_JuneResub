@@ -20,6 +20,9 @@ As a platform,
   * we will benefit by reaching to more user and potential link to local money changers to direct the leads
   * we will attract advertisers who wish to reach out to the users
   
+As a sponsor,
+  * they will be able to reach out to more users to market their product
+  * they will be able to get their contact listed on the website
 
 ## Features:
 
@@ -73,9 +76,12 @@ Below are the commands to initalise and make regular commits, enter the commands
 ## Credits:
 
 Coding: https://www.w3schools.com/
+
 API: https://github.com/public-apis/public-apis#currency-exchange
+
 Images: Taken from Google search.
 
+## Media
 
-
+The photos used are all used from www.pexel.com
 
